@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Starfall Catastrophe — A Tactical Card Game of Cosmic Collapse</title>
+  <meta name="description" content="Starfall Catastrophe — a tactical trading card game of cosmic collapse. Unite the factions. Save the world. Play the online demo featuring all six factions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/css/main.css">
+  <style>
+    :root{--void:#1a1a2e;--plum:#3e1b52;--neon:#00ffff;--ink:#0b0b12;}
+    html,body{height:100%}
+    body{font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial,'Apple Color Emoji','Segoe UI Emoji';background:var(--void);color:#fff}
+    .text-neon{color:var(--neon)}
+    .glow{box-shadow:0 0 0 1px rgba(0,255,255,.15),0 10px 30px rgba(0,255,255,.15)}
+    .bg-void{background:linear-gradient(135deg,var(--void) 0%,var(--plum) 100%)}
+    .hero{min-height:88vh;background:url('/assets/images/starfall_banner.jpg') center/cover no-repeat fixed}
+    .glass{background:rgba(0,0,0,.55);backdrop-filter:blur(8px)}
+    .card{border:1px solid rgba(255,255,255,.08)}
+    .card:hover{border-color:rgba(0,255,255,.5);transform:translateY(-4px);box-shadow:0 20px 35px rgba(0,255,255,.18)}
+  </style>
+</head>
+<body class="antialiased selection:bg-cyan-300/30">
+  <!-- NAV -->
+  <header class="sticky top-0 z-50 border-b border-cyan-300/10 bg-black/40 backdrop-blur-md">
+    <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2 font-black tracking-widest text-xl text-neon">STARFALL</a>
+      <nav class="flex items-center gap-2 text-sm">
+        <a class="px-3 py-2 rounded hover:text-neon" href="/factions.html">Factions</a>
+        <a class="px-3 py-2 rounded hover:text-neon" href="/gameplay.html">How to Play</a>
+        <a class="px-3 py-2 rounded hover:text-neon" href="/blog/index.php">News & Blog</a>
+        <a class="ml-2 px-4 py-2 rounded-full bg-cyan-300 text-gray-900 font-bold hover:bg-white transition" href="#play">Play Demo</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero relative flex items-center">
+    <div class="absolute inset-0 bg-gradient-to-b from-black/40 to-black/80"></div>
+    <div class="relative max-w-6xl mx-auto w-full px-4 py-20">
+      <div class="glass rounded-2xl p-8 md:p-12 glow">
+        <p class="uppercase tracking-[0.3em] text-cyan-200/80 text-xs md:text-sm">Starfall Catastrophe</p>
+        <h1 class="mt-2 text-4xl md:text-6xl font-black leading-tight">A Tactical Card Game of Cosmic Collapse</h1>
+        <p class="mt-5 text-lg md:text-xl text-gray-300 max-w-3xl">Unite the factions. Save the world. Six cosmic powers collide after a heaven‑shattering event — where strategy, timing, and imagination decide the fate of reality.</p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="#six" class="px-6 py-3 rounded-full bg-cyan-300 text-gray-900 font-extrabold hover:bg-white transition">Discover the Factions</a>
+          <a href="#play" class="px-6 py-3 rounded-full border border-cyan-300/60 hover:bg-cyan-300/10">Play Demo (Coming Soon)</a>
+          <a href="#developing" class="px-6 py-3 rounded-full border border-white/20 hover:bg-white/10">Development Update</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEVELOPMENT STRIP -->
+  <section id="developing" class="bg-black/70 border-y border-cyan-300/10">
+    <div class="max-w-7xl mx-auto px-4 py-8 grid md:grid-cols-[1fr_2fr] gap-6 items-center">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-extrabold">Now Developing</h2>
+      </div>
+      <div class="text-gray-300 text-base md:text-lg">
+        <p><span class="font-semibold text-cyan-200">Online gameplay platform</span> for all six factions — starting with <span class="font-semibold">Doctor Boon</span>.</p>
+        <p class="mt-1">The web-based app will allow players to experience tactical gameplay and cross-faction duels directly in the browser.</p>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <a href="#play" class="px-5 py-2.5 rounded-full bg-white text-gray-900 font-bold hover:bg-cyan-100">Preview Under Construction</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE SIX -->
+  <section id="six" class="py-20 bg-void">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <h3 class="text-4xl md:text-5xl font-extrabold text-neon mb-3">The Six</h3>
+      <p class="text-gray-300 max-w-3xl mx-auto mb-12">Each faction brings a unique mechanical identity and destiny to the Starfall Catastrophe.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <a href="/factions.html#freeborn" class="card rounded-xl p-6 bg-black/60 hover:bg-black/70 transition group"><div class="text-5xl mb-2">⚗️</div><div class="text-2xl font-bold text-neon group-hover:text-white">The Freeborn</div><p class="text-gray-400 text-sm mt-1">Nanotech tactics and adaptive intellect.</p></a>
+        <a href="/factions.html#elemental" class="card rounded-xl p-6 bg-black/60 hover:bg-black/70 transition group"><div class="text-5xl mb-2">🔥</div><div class="text-2xl font-bold text-red-400 group-hover:text-white">Elemental Flame</div><p class="text-gray-400 text-sm mt-1">Chaos, emotion, and raw power.</p></a>
+        <a href="/factions.html#cradle" class="card rounded-xl p-6 bg-black/60 hover:bg-black/70 transition group"><div class="text-5xl mb-2">🌿</div><div class="text-2xl font-bold text-green-400 group-hover:text-white">Cradle of the Root</div><p class="text-gray-400 text-sm mt-1">Ancient bio‑magic and growth.</p></a>
+        <a href="/factions.html#void" class="card rounded-xl p-6 bg-black/60 hover:bg-black/70 transition group"><div class="text-5xl mb-2">🌌</div><div class="text-2xl font-bold text-purple-400 group-hover:text-white">The Void Ones</div><p class="text-gray-400 text-sm mt-1">Cosmic corruption and entropy.</p></a>
+        <a href="/factions.html#ember" class="card rounded-xl p-6 bg-black/60 hover:bg-black/70 transition group"><div class="text-5xl mb-2">🛡️</div><div class="text-2xl font-bold text-orange-400 group-hover:text-white">The Ember Ashes</div><p class="text-gray-400 text-sm mt-1">Endless resilience and defense.</p></a>
+        <a href="/factions.html#codex" class="card rounded-xl p-6 bg-black/60 hover:bg-black/70 transition group"><div class="text-5xl mb-2">✨</div><div class="text-2xl font-bold text-blue-400 group-hover:text-white">Codex of the Eternal Spark</div><p class="text-gray-400 text-sm mt-1">Pure data, light, and recursion.</p></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAY DEMO PLACEHOLDER -->
+  <section id="play" class="py-24 bg-black text-center">
+    <div class="max-w-3xl mx-auto px-4">
+      <h3 class="text-3xl md:text-4xl font-extrabold mb-4">Online Gameplay Platform</h3>
+      <p class="text-lg text-gray-300 mb-8">Our cloud-based play engine is under active construction. Soon, you’ll be able to build decks, challenge other players, and explore every faction directly from your browser.</p>
+      <div class="rounded-xl border border-cyan-300/20 bg-black/60 p-10">
+        <p class="text-cyan-200 text-xl font-semibold">🚧 Under Construction</p>
+        <p class="text-gray-400 mt-2">The online demo will go live once our cloud deployment is complete. Stay tuned for updates via our <a href="/blog/index.php" class="underline hover:text-neon">News & Blog</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-black/80 border-t border-cyan-300/10">
+    <div class="max-w-7xl mx-auto px-4 py-10">
+      <div class="grid md:grid-cols-2 gap-6">
+        <div>
+          <h4 class="text-neon font-bold text-lg">Starfall Catastrophe</h4>
+          <p class="text-gray-400 mt-2 text-sm">Unite the factions. Save the world.</p>
+          <p class="text-xs text-gray-500 mt-4">Starfall Catastrophe — A Tactical Card Game of Cosmic Collapse</p>
+        </div>
+        <div class="text-sm text-gray-400">
+          <p class="leading-relaxed">© 2025 Lim Boon Chuan. All rights reserved. Starfall Catastrophe is an independent, original trading card game. It is not affiliated with Starfall Education Foundation, Star Wars, or any other brand using the term “Starfall.”</p>
+          <div class="mt-3 flex flex-wrap gap-3">
+            <a class="hover:text-neon underline-offset-4 hover:underline" href="/contact.html">Contact</a>
+            <a class="hover:text-neon underline-offset-4 hover:underline" href="/privacy.html">Privacy</a>
+            <a class="hover:text-neon underline-offset-4 hover:underline" href="/terms.html">Terms</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,8 @@
+/* You can move from CDN Tailwind to a compiled CSS later. */
+:root{
+  --void:#1a1a2e;
+  --plum:#3e1b52;
+  --neon:#00ffff;
+}
+/* Small helper for focus-visible */
+:focus-visible{ outline: 2px solid rgba(0,255,255,.6); outline-offset: 2px; }
