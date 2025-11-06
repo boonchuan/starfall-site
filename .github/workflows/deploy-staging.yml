@@ -29,7 +29,7 @@ jobs:
 
           port: ${{ secrets.SFTP_PORT }}
           local_path: "./"            # deploy everything in repo
-          remote_path: "/public_html/staging/"  # << replace USER
+          remote_path: "/public_html/staging"  # << replace USER
           sftp_only: true
           # Upload only changed files and delete removed files at the destination:
           args: "-o ConnectTimeout=10"
