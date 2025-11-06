@@ -27,5 +27,5 @@ Flip `MODE` to `LIVE` when backend is ready.
    - Deployment path: `/home/USER/staging`
    - Branch: `staging`
 2) Push this repo to your remote; in cPanel, click Deploy HEAD commit.
-3) Verify at `https://staging.starfallcatastrophe.com`.
+3) Verify at `https://staging.starfallcatastrophe.com`. 
 
