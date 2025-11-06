@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gameplay — Starfall Catastrophe</title>
+  <meta name="description" content="Learn how to play Starfall Catastrophe — attributes, turn structure, card types, energy, and win conditions." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { --void:#0b0f1a; --neon:#00ffff; }
+    body { font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial;background:var(--void);color:#fff; }
+    .glass { background:rgba(0,0,0,.55); backdrop-filter:blur(8px); border:1px solid rgba(255,255,255,.08); border-radius:16px; }
+    .hero { position:relative; min-height:70vh; display:flex; align-items:center; }
+    .hero video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-1; }
+    .section { scroll-margin-top: 90px; }
+    .pill { padding:.35rem .7rem; border-radius:9999px; border:1px solid rgba(255,255,255,.18); font-size:.75rem; }
+    code { background:rgba(255,255,255,.08); padding:.15rem .35rem; border-radius:.35rem; }
+  </style>
+</head>
+<body class="antialiased selection:bg-cyan-300/30">
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 border-b border-cyan-300/10 bg-black/40 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2 font-black tracking-widest text-xl" style="color:var(--neon)">STARFALL</a>
+    <nav class="hidden md:flex items-center gap-2 text-sm">
+      <a class="px-3 py-2 rounded hover:text-cyan-300" href="/factions.html">Factions</a>
+      <a class="px-3 py-2 rounded text-cyan-300" href="/gameplay.html">Gameplay</a>
+      <a class="px-3 py-2 rounded hover:text-cyan-300" href="/cards.html">Cards</a>
+      <a class="px-3 py-2 rounded hover:text-cyan-300" href="/blog/index.php">Blog</a>
+      <a class="px-3 py-2 rounded hover:text-cyan-300" href="/kickstarter.html">Kickstarter</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <video autoplay muted loop playsinline>
+    <source src="/media/factions/index.mp4" type="video/mp4">
+  </video>
+  <div class="max-w-5xl mx-auto w-full px-4">
+    <div class="glass p-8 md:p-10">
+      <h1 class="text-4xl md:text-6xl font-black">How to Play</h1>
+      <p class="text-gray-300 mt-4 text-lg">
+        A fast tactical TCG where four attributes shape every decision — and timing decides the cosmos.
+      </p>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <a href="#attributes" class="pill hover:text-cyan-300">Attributes</a>
+        <a href="#turn" class="pill hover:text-cyan-300">Turn Structure</a>
+        <a href="#cards" class="pill hover:text-cyan-300">Card Types</a>
+        <a href="#energy" class="pill hover:text-cyan-300">Energy</a>
+        <a href="#zones" class="pill hover:text-cyan-300">Zones & Traps</a>
+        <a href="#win" class="pill hover:text-cyan-300">Win Conditions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="max-w-7xl mx-auto px-4 py-12 space-y-12">
+
+  <!-- ATTRIBUTES -->
+  <section id="attributes" class="section">
+    <div class="grid md:grid-cols-2 gap-6 items-start">
+      <div class="glass p-6">
+        <h2 class="text-3xl font-extrabold">Core Attributes</h2>
+        <p class="text-gray-300 mt-2">Every hero has four attributes that scale effects and unlock timings.</p>
+        <ul class="mt-4 grid sm:grid-cols-2 gap-4">
+          <li class="p-4 rounded border border-cyan-300/10">
+            <div class="text-cyan-300 font-bold">Tactics (T)</div>
+            <p class="text-gray-300 text-sm mt-1">
+              Sets trap limit (T), card draw bonus (T-2), and counter roll (d6 ≤ T).
+            </p>
+          </li>
+          <li class="p-4 rounded border border-cyan-300/10">
+            <div class="text-blue-300 font-bold">Skill (S)</div>
+            <p class="text-gray-300 text-sm mt-1">
+              +S×10% to Action effects and enables combo bonuses.
+            </p>
+          </li>
+          <li class="p-4 rounded border border-cyan-300/10">
+            <div class="text-green-300 font-bold">Resilience (R)</div>
+            <p class="text-gray-300 text-sm mt-1">
+              Shield = R×10; Trap resist = R×5%.
+            </p>
+          </li>
+          <li class="p-4 rounded border border-cyan-300/10">
+            <div class="text-purple-300 font-bold">Mysticism (M)</div>
+            <p class="text-gray-300 text-sm mt-1">
+              Magic scaling = M×5%; if M ≥ 4: 1/turn Mystic Cancel (2 energy).
+            </p>
+          </li>
+        </ul>
+      </div>
+
+      <div class="glass p-6">
+        <h3 class="text-xl font-bold">Why it matters</h3>
+        <p class="text-gray-300 mt-2">
+          Builds are defined by attribute lines. High-T heroes dominate trap tempo; high-S spike damage windows; high-R grind with shields; high-M bend the stack with cancels.
+        </p>
+        <p class="text-gray-400 text-sm mt-3">Ruleset: <span class="font-semibold">Core Rules v1.0 (Locked)</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TURN STRUCTURE -->
+  <section id="turn" class="section">
+    <div class="glass p-6">
+      <h2 class="text-3xl font-extrabold">Turn Structure</h2>
+      <ol class="mt-4 grid md:grid-cols-5 gap-4 text-gray-200">
+        <li class="p-4 rounded bg-white/5 border border-white/10">
+          <div class="text-sm uppercase tracking-wide text-gray-300">1</div>
+          <div class="font-bold">Draw</div>
+          <p class="text-sm text-gray-300">Draw to hand.</p>
+        </li>
+        <li class="p-4 rounded bg-white/5 border border-white/10">
+          <div class="text-sm uppercase tracking-wide text-gray-300">2</div>
+          <div class="font-bold">Energy</div>
+          <p class="text-sm text-gray-300">Gain base energy and effects that refresh here.</p>
+        </li>
+        <li class="p-4 rounded bg-white/5 border border-white/10">
+          <div class="text-sm uppercase tracking-wide text-gray-300">3</div>
+          <div class="font-bold">Play</div>
+          <p class="text-sm text-gray-300">Play Actions/Allies, set Traps (face-down), open the stack.</p>
+        </li>
+        <li class="p-4 rounded bg-white/5 border border-white/10">
+          <div class="text-sm uppercase tracking-wide text-gray-300">4</div>
+          <div class="font-bold">Battle</div>
+          <p class="text-sm text-gray-300">Resolve attacks and on-attack triggers.</p>
+        </li>
+        <li class="p-4 rounded bg-white/5 border border-white/10">
+          <div class="text-sm uppercase tracking-wide text-gray-300">5</div>
+          <div class="font-bold">End</div>
+          <p class="text-sm text-gray-300">Cleanup, end-step effects.</p>
+        </li>
+      </ol>
+      <p class="text-gray-400 text-sm mt-4">
+        Priority/Stack system defined; responses resolve last-in-first-out.
+      </p>
+    </div>
+  </section>
+
+  <!-- CARD TYPES -->
+  <section id="cards" class="section">
+    <div class="glass p-6">
+      <h2 class="text-3xl font-extrabold">Card Types</h2>
+      <div class="grid md:grid-cols-3 gap-4 mt-4">
+        <div class="p-4 rounded border border-cyan-300/10">
+          <div class="text-blue-300 font-bold text-lg">Action</div>
+          <p class="text-gray-300 text-sm mt-1">One-shot effects; scale with <b>S</b> and <b>M</b>; open/resolve on the stack.</p>
+        </div>
+        <div class="p-4 rounded border border-cyan-300/10">
+          <div class="text-green-300 font-bold text-lg">Ally</div>
+          <p class="text-gray-300 text-sm mt-1">Units that persist on the field; can attack; enable synergies.</p>
+        </div>
+        <div class="p-4 rounded border border-cyan-300/10">
+          <div class="text-cyan-300 font-bold text-lg">Trap</div>
+          <p class="text-gray-300 text-sm mt-1">Set face-down; flip on timing triggers:
+            <br><span class="text-xs text-gray-400">Instant / Reaction / Persistent</span>
+          </p>
+        </div>
+      </div>
+      <p class="text-gray-400 text-sm mt-3">
+        Template + CSV schema are locked (id, name, type, subtype, cost, T/S/R/M scaling, effect text, timing, rarity, faction, etc.).
+      </p>
+    </div>
+  </section>
+
+  <!-- ENERGY & SCALING -->
+  <section id="energy" class="section">
+    <div class="glass p-6">
+      <h2 class="text-3xl font-extrabold">Energy & Scaling</h2>
+      <div class="grid md:grid-cols-2 gap-6 mt-3">
+        <div>
+          <p class="text-gray-300">
+            Base energy each turn:
+            <code>3 + ceil(M / 2)</code>
+          </p>
+          <p class="text-gray-300 mt-2">
+            Attribute scaling applies to many effects (e.g., action damage, shields, cancels). Plan turns around
+            when to open the stack, when to hold counters, and when to push for lethal.
+          </p>
+          <ul class="text-sm text-gray-400 mt-3 list-disc list-inside">
+            <li><b>S</b> multiplies action potency (+S×10%).</li>
+            <li><b>R</b> sets your survivability (Shield = R×10).</li>
+            <li><b>M</b> fuels mystic effects (+M×5% and cancels if M≥4).</li>
+          </ul>
+        </div>
+        <div class="p-4 rounded border border-white/10">
+          <div class="text-sm uppercase tracking-wide text-gray-400">Example</div>
+          <p class="text-gray-200 mt-1">
+            If M = 4, base energy = <code>3 + ceil(4/2) = 5</code>. You may also perform one <i>Mystic Cancel</i> this turn (cost 2 energy).
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ZONES & TRAPS -->
+  <section id="zones" class="section">
+    <div class="glass p-6">
+      <h2 class="text-3xl font-extrabold">Zones & Trap Timing</h2>
+      <div class="grid md:grid-cols-2 gap-6 mt-3">
+        <div>
+          <ul class="text-gray-300 space-y-2">
+            <li><b>Deck</b> — draw from here.</li>
+            <li><b>Hand</b> — play Actions/Allies; set Traps face-down.</li>
+            <li><b>Field</b> — Allies & flipped Traps.</li>
+            <li><b>Discard</b> — resolved/defeated cards.</li>
+            <li><b>Banish</b> — removed from the game.</li>
+          </ul>
+        </div>
+        <div>
+          <p class="text-gray-300">
+            Trap timing windows:
+          </p>
+          <ul class="text-gray-300 mt-2 list-disc list-inside">
+            <li><b>Instant</b> — open anytime (priority permitting).</li>
+            <li><b>Reaction</b> — in response to specific triggers.</li>
+            <li><b>Persistent</b> — remains active after flip.</li>
+          </ul>
+          <p class="text-gray-400 text-sm mt-2">Counter rolls use <b>T</b> (d6 ≤ T succeeds).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WIN CONDITIONS -->
+  <section id="win" class="section">
+    <div class="glass p-6">
+      <h2 class="text-3xl font-extrabold">How to Win</h2>
+      <ul class="text-gray-300 mt-3 list-disc list-inside">
+        <li><b>Deplete the opponent’s Shield</b> (R×10, plus effects), or</li>
+        <li><b>Mill their deck</b> (they cannot draw).</li>
+      </ul>
+      <p class="text-gray-400 text-sm mt-2">
+        Tactical timing, stack priority, and attribute scaling decide the endgame.
+      </p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="/blog/index.php" class="pill hover:text-cyan-300">News & Updates</a>
+        <a href="/index.html#play" class="pill hover:text-cyan-300">Play Demo (Under Construction)</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-black/80 border-t border-cyan-300/10 mt-10">
+  <div class="max-w-7xl mx-auto px-4 py-10 text-sm text-gray-400">
+    © 2025 Lim Boon Chuan. All rights reserved. Starfall Catastrophe is an independent, original trading card game.
+  </div>
+</footer>
+
+</body>
+</html>
