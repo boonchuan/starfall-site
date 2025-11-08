@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Overclock Surge",
+    "type": "Action",
+    "rarity": "R",
+    "img": "./assets/img/sample-card-1.jpg",
+    "text": "Grant +20% action scaling this turn."
+  },
+  {
+    "name": "Freeborn Countermesh",
+    "type": "Trap",
+    "rarity": "SR",
+    "img": "./assets/img/sample-card-2.jpg",
+    "text": "Cancel an enemy Action if T d6 ≤ 5."
+  },
+  {
+    "name": "Workshop Acolyte",
+    "type": "Ally",
+    "rarity": "C",
+    "img": "./assets/img/sample-card-3.jpg",
+    "text": "When played, draw 1 if T ≥ 4."
+  }
+]

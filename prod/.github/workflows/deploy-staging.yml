@@ -1,0 +1,38 @@
+name: Deploy to cPanel staging (SFTP)
+
+on:
+  push:
+    branches: [ "staging" ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Optional: If you later switch from Tailwind CDN to a compiled CSS build,
+      # insert your build step here.
+
+      - name: SFTP deploy to /staging
+        uses: wlixcc/SFTP-Deploy-Action@v1.2
+        with:
+          server: ${{ secrets.SFTP_HOST }}
+          username: ${{ secrets.SFTP_USER }}
+          # Use one of the two auth methods below:
+
+          # 1) Password auth (simple):
+          password: ${{ secrets.SFTP_PASSWORD }}
+
+          # 2) Or SSH key auth (more secure) — comment out password above, add key here:
+          # ssh_private_key: ${{ secrets.SFTP_SSH_KEY }}
+
+          port: ${{ secrets.SFTP_PORT }}
+          local_path: "./"            # deploy everything in repo
+          remote_path: "/public_html/staging"  # << replace USER
+          sftp_only: true
+          # Upload only changed files and delete removed files at the destination:
+          args: "-o ConnectTimeout=10"
+          # To mirror (delete files that were removed in git), add:
+          # exclude: ".git*,.github/"
+          # NOTE: This action already ignores .git automatically.

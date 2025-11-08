@@ -1,0 +1,220 @@
+
+window.starfallAuth = function(form){
+  const email = form.email.value.trim();
+  const pw = form.password.value;
+  if(!email || !pw){ alert('Enter email and password.'); return false; }
+  if(pw !== 'starfall'){ alert('Demo password incorrect. Use: starfall'); return false; }
+  document.getElementById('member-content').classList.remove('hidden');
+  form.closest('.card').querySelector('.signin').style.display='none';
+  return false;
+};
+
+// --- WordPress Blog Renderer (inline expand) ---
+(async function renderBlog(){
+  const grid = document.getElementById('blog-grid');
+  if(!grid) return;
+  const base = (window.STARFALL_BLOG_BASE || '../blog').replace(/\/+$/,'');
+  let page = 1;
+  const perPage = 9;
+  const cache = new Map(); // id -> full post
+
+  async function fetchPosts(p){
+    const url = `${base}/wp-json/wp/v2/posts?_embed&per_page=${perPage}&page=${p}`;
+    const res = await fetch(url, {credentials:'include'});
+    if(!res.ok) throw new Error('Blog API error ' + res.status);
+    const totalPages = parseInt(res.headers.get('X-WP-TotalPages') || '1', 10);
+    const posts = await res.json();
+    return {posts, totalPages};
+  }
+  async function fetchPostById(id){
+    if(cache.has(id)) return cache.get(id);
+    const url = `${base}/wp-json/wp/v2/posts/${id}?_embed`;
+    const res = await fetch(url, {credentials:'include'});
+    if(!res.ok) throw new Error('Blog API error ' + res.status);
+    const post = await res.json();
+    cache.set(id, post);
+    return post;
+  }
+  function strip(html){
+    const div = document.createElement('div');
+    div.innerHTML = html;
+    return (div.textContent || div.innerText || '').trim();
+  }
+  function mediaImg(post){
+    try{
+      const media = post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0];
+      const src = media?.source_url || '';
+      if(src) return `<div class="blog-media"><img loading="lazy" src="${src}" alt=""></div>`;
+    }catch(e){}
+    return `<div class="blog-media"></div>`;
+  }
+  function cardHTML(post){
+    const id = post.id;
+    const title = strip(post.title?.rendered || 'Untitled');
+    const excerpt = strip(post.excerpt?.rendered || '');
+    const date = new Date(post.date).toLocaleDateString(undefined, {year:'numeric', month:'short', day:'numeric'});
+    return `
+    <article class="blog-card" data-post-id="${id}" tabindex="0" role="button" aria-expanded="false">
+      ${mediaImg(post)}
+      <div class="blog-body">
+        <h3 class="blog-title">${title}</h3>
+        <p class="blog-excerpt">${excerpt}</p>
+        <div class="blog-meta"><span>${date}</span></div>
+      </div>
+      <div class="blog-expand">
+        <div class="content" id="content-${id}"></div>
+        <div class="toolbar">
+          <button class="close" data-close="${id}" aria-label="Close">Close</button>
+          <a class="open" href="${post.link || (base + '/?p=' + id)}" target="_blank" rel="noopener">Open on Blog</a>
+        </div>
+      </div>
+    </article>`;
+  }
+  function onCardClick(e){
+    const card = e.currentTarget;
+    const id = card.getAttribute('data-post-id');
+    const expanded = card.classList.toggle('expanded');
+    card.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    if(expanded){
+      document.querySelectorAll('.blog-card.expanded').forEach(c => { if(c !== card){ c.classList.remove('expanded'); c.setAttribute('aria-expanded','false'); }});
+      const slot = card.querySelector(`#content-${id}`);
+      if(slot && slot.childElementCount === 0){
+        fetchPostById(id).then(post => { slot.innerHTML = post.content?.rendered || '<p>No content.</p>'; }).catch(err => { slot.innerHTML = `<p>Couldn’t load content.</p>`; console.error(err); });
+      }
+    }
+  }
+  function onCloseClick(e){
+    const id = e.target.getAttribute('data-close');
+    const card = document.querySelector(`.blog-card[data-post-id="${id}"]`);
+    if(card){ card.classList.remove('expanded'); card.setAttribute('aria-expanded','false'); }
+  }
+  async function load(){
+    try{
+      const {posts, totalPages} = await fetchPosts(page);
+      const html = posts.map(cardHTML).join('');
+      grid.insertAdjacentHTML('beforeend', html);
+      grid.querySelectorAll('.blog-card').forEach(card => {
+        card.addEventListener('click', onCardClick);
+        card.addEventListener('keypress', (ev)=>{ if(ev.key==='Enter' || ev.key===' '){ onCardClick({currentTarget: card}); ev.preventDefault(); }});
+      });
+      grid.querySelectorAll('.blog-expand .close').forEach(btn => btn.addEventListener('click', (ev)=>{ev.stopPropagation(); onCloseClick(ev);}));
+      const more = document.getElementById('blog-more');
+      if(page < totalPages){ more.style.display = ''; } else { more.style.display = 'none'; }
+    }catch(err){
+      grid.innerHTML = `<div class="card"><p>Couldn’t load blog posts. <a class="link" href="${base}/index.php" target="_blank" rel="noopener">Open the blog →</a></p></div>`;
+      console.error(err);
+    }
+  }
+  document.getElementById('load-more')?.addEventListener('click', (e)=>{ e.preventDefault(); page += 1; load(); });
+  load();
+})();
+
+// ---- Data-driven sections ----
+async function jsonGet(path){
+  const res = await fetch(path, {credentials:'same-origin'});
+  if(!res.ok) throw new Error('Failed '+path);
+  return await res.json();
+}
+
+// Heroes hub auto-render
+(async function(){
+  const grid = document.querySelector('.heroes-grid[data-auto="1"]');
+  if(!grid) return;
+  try{
+    const heroes = await jsonGet('./assets/data/heroes.json');
+    grid.innerHTML = heroes.map(h => `
+      <article class="hero-card card">
+        <div class="hero-media">
+          <video autoplay muted loop playsinline poster="${h.poster}">
+            <source src="${h.video}" type="video/mp4">
+          </video>
+        </div>
+        <div class="hero-body">
+          <h3>${h.name}</h3>
+          <p class="muted">${h.tag}</p>
+          <p>${h.blurb}</p>
+          <div class="cta-row">
+            <a class="btn" href="./${h.slug}.html">View Hero</a>
+            <a class="btn outline" href="./demo.html">Try Demo</a>
+          </div>
+        </div>
+      </article>
+    `).join('');
+  }catch(e){ console.error(e); }
+})();
+
+// Lore auto-render
+(async function(){
+  const wrap = document.getElementById('lore-auto');
+  if(!wrap) return;
+  try{
+    const data = await jsonGet('./assets/data/lore.json');
+    wrap.innerHTML = data.chapters.map(ch => `
+      <article class="card">
+        <h3>${ch.title}</h3>
+        <p class="muted">${ch.summary}</p>
+        <details>
+          <summary>Read chapter</summary>
+          <p>${ch.content}</p>
+        </details>
+      </article>
+    `).join('');
+  }catch(e){ wrap.innerHTML = '<div class="card"><p>Could not load lore.</p></div>'; }
+})();
+
+// Doctor Boon sample cards
+(async function(){
+  const grid = document.getElementById('boon-cards');
+  if(!grid) return;
+  try{
+    const cards = await jsonGet('./assets/data/doctor_boon_cards.json');
+    grid.innerHTML = cards.map(c => `
+      <figure class="card">
+        <img src="${c.img}" alt="${c.name}" style="width:100%;border-radius:10px">
+        <figcaption><strong>${c.name}</strong> · ${c.type} · <span class="muted">${c.rarity}</span><br>${c.text}</figcaption>
+      </figure>
+    `).join('');
+  }catch(e){ grid.innerHTML = '<div class="card"><p>Could not load sample cards.</p></div>'; }
+})();
+
+// Gameplay auto-render
+(async function(){
+  const wrap = document.getElementById('rules-auto');
+  if(!wrap) return;
+  try{
+    const g = await jsonGet('./assets/data/gameplay.json');
+    wrap.innerHTML = `
+      <div class="card"><strong>Version:</strong> ${g.version}</div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Attributes</h3>
+          <ul>${g.attributes.map(x=>`<li>${x}</li>`).join('')}</ul>
+        </div>
+        <div class="card">
+          <h3>Deck & Turn</h3>
+          <p><strong>Deck:</strong> ${g.deck}</p>
+          <p><strong>Turn:</strong> ${g.turn}</p>
+          <p><strong>Energy:</strong> ${g.energy}</p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <h3>Scaling</h3>
+          <ul>
+            <li><strong>T</strong>: ${g.scaling.T}</li>
+            <li><strong>S</strong>: ${g.scaling.S}</li>
+            <li><strong>R</strong>: ${g.scaling.R}</li>
+            <li><strong>M</strong>: ${g.scaling.M}</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Victory</h3>
+          <p>${g.win}</p>
+          <h4>Zones</h4>
+          <ul>${g.zones.map(x=>`<li>${x}</li>`).join('')}</ul>
+        </div>
+      </div>
+      <div class="card"><p>${g.priority}</p></div>
+    `;
+  }catch(e){ wrap.innerHTML = '<div class="card"><p>Could not load rules.</p></div>'; }
+})();
