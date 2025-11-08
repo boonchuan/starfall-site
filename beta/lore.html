@@ -1,0 +1,100 @@
+<!doctype html><html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Lore • Starfall Catastrophe</title>
+  <link rel="stylesheet" href="./assets/css/main.css">
+  <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
+</head>
+<body>
+<header class="site-header">
+  <div class="container nav-wrap">
+    <a class="brand" href="./index.html">
+      <video class="logo" autoplay muted loop playsinline poster="./assets/img/emblem.png">
+        <source src="./assets/img/emblem.mp4" type="video/mp4">
+      </video>
+    </a>
+    <nav class="main-nav">
+      <a href="./index.html">Index</a>
+      <a href="./heroes.html">Heroes</a>
+      <a class="active" href="./lore.html">Lore</a>
+      <a href="./gameplay.html">Game Play</a>
+      <a href="./blog.html">Blog</a>
+      <a href="./demo.html">Demo</a>
+      <a href="./members.html">Members</a>
+    </nav>
+    <nav class="social-nav physical">
+  <a class="btn-social x" href="https://x.com/StarfallCatas" target="_blank" title="X">✦</a>
+  <a class="btn-social ig" href="https://www.instagram.com/starfallcatastrophe/" target="_blank" title="Instagram">☀</a>
+  <a class="btn-social fb" href="https://facebook.com" target="_blank" title="Facebook">✶</a>
+  <a class="btn-social dc" href="https://discord.com" target="_blank" title="Discord">☽</a>
+</nav>
+  </div>
+</header>
+
+<main>
+  <section class="container">
+    <h1>Lore Archive</h1>
+    <p>Explore the chronicles behind the six forces. Chapters expand inline—no leaving the page.</p>
+
+    <div class="lore-grid">
+      <!-- Chapter card -->
+      <article class="lore-card" id="chapter-3-card">
+        <h2>Chapter 3 — The Forests Remembered (Virelia)</h2>
+        <p class="excerpt">Before the cities, before the machines… when the heavens split and the shard fell, even the roots began to scream.</p>
+        <button class="btn expand" data-target="#chapter-3">Read Chapter</button>
+      </article>
+      <!-- More chapter cards can be added here -->
+    </div>
+  </section>
+
+  <section class="container lore-chapter" id="chapter-3" hidden>
+    <h2>Chapter 3 — The Forests Remembered</h2>
+    <p>Before the cities, before the machines, before even the first human dream, the roots beneath the soil had whispered to one another — slow, patient songs that shaped the balance of the world. But when the heavens split and the shard fell, even that deep chorus began to scream.</p>
+    <p>Wherever the infection spread, it consumed not only flesh but memory — flowers forgot how to bloom, rivers forgot their paths, and even the trees forgot the names of their own leaves. The air reeked of ash and static. Entire ecosystems unraveled in silence.</p>
+    <p>In that silence, Virelia awoke.</p>
+    <p>Born of both flame and earth, she was a child of contradiction — a warrior whose heart burned with compassion as fierce as her rage. Once a guardian of the forest’s borders, she had tended the sacred groves with firelight rituals that purified decay and fed renewal. But now, that same fire threatened to devour everything she loved.</p>
+    <p>When the shard’s corruption reached the heartwood, she did what no mortal could. Virelia descended into the root-vault — a labyrinth of glowing veins where the lifeblood of the world pulsed like molten amber. There she forged a pact with the Ancient Below, the sentient network that slumbered beneath every living thing. Her body became the conduit, her breath the wind through its tunnels, her pulse the drum of its heart.</p>
+    <p>Through her sacrifice, the Cradle of the Root was born — living sanctuaries grown from the union of nature’s will and Virelia’s flame-touched spirit. Within these sacred enclosures, time slowed and corruption withered. Trees formed spiraled domes over shimmering pools of sap; vines wove barriers of light and scent; even the soil breathed warmth. To wander within was to feel the heartbeat of the planet itself.</p>
+    <p>But balance came at a price.</p>
+    <p>Each sanctuary required a guardian — spirits bound to the root by threads of Virelia’s own essence. They took many forms: moss-skinned hunters, ember-eyed dryads, even beasts sculpted from bark and wildfire. Together they waged a quiet war, cleansing what could be healed and burning what could not.</p>
+    <p>Virelia’s alliance was not an army but an ecosystem — every member a strand in the great weave. They called themselves the Cradle, not to conquer, but to endure. To them, survival was not victory; survival was remembrance.</p>
+    <p>Still, the corruption adapted. It learned the language of roots. It mimicked the pulse of sap. In the deepest groves, some trees began to whisper false songs — tempting the unwary into the soil, where they vanished without trace.</p>
+    <p>And Virelia understood then that the war was not between fire and rot, nor between life and death — but between memory and forgetting.</p>
+
+    <div class="chapter-nav">
+      <a href="#top" class="btn">Back to top</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>© 2025 Lim Boon Chuan. All rights reserved.<br>
+    Starfall Catastrophe is an independent, original trading card game. It is not affiliated with Starfall Education Foundation, Star Wars, or any other brand using the term “Starfall.”</p>
+  </div>
+</footer>
+
+<script src="./assets/js/main.js" defer></script>
+<script defer>
+  // Expand/Collapse Chapter
+  document.addEventListener('click', (e)=>{
+    const btn = e.target.closest('.expand');
+    if(!btn) return;
+    const sel = btn.getAttribute('data-target');
+    const sec = document.querySelector(sel);
+    if(!sec) return;
+    const hidden = sec.hasAttribute('hidden');
+    if(hidden) sec.removeAttribute('hidden'); else sec.setAttribute('hidden','');
+    btn.textContent = hidden ? 'Hide Chapter' : 'Read Chapter';
+    try{ localStorage.setItem('lore_ch3_open', hidden ? '1':'0'); }catch(_){}
+  });
+  // Restore state
+  try{
+    if(localStorage.getItem('lore_ch3_open') === '1'){
+      document.querySelector('#chapter-3')?.removeAttribute('hidden');
+      const b = document.querySelector('[data-target="#chapter-3"]'); if(b) b.textContent='Hide Chapter';
+    }
+  }catch(_){}
+</script>
+<script src="./assets/js/main.js" defer></script>
+</body></html>

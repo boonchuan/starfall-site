@@ -1,0 +1,27 @@
+{
+  "version": "1.0 (Locked 2025-07-26)",
+  "attributes": [
+    "Tactics (T)",
+    "Skill (S)",
+    "Resilience (R)",
+    "Mysticism (M)"
+  ],
+  "deck": "39 cards per hero (13 Trap, 13 Action, 13 Ally) + 1 Hero",
+  "turn": "Draw, Energy, Play, Battle, End",
+  "energy": "Base energy 3 + ceil(M/2)",
+  "scaling": {
+    "T": "Trap limit (T), card draw bonus (T-2), counter roll (d6 ≤ T)",
+    "S": "+S*10% to Action effects and combo bonus",
+    "R": "Shield = R*10, trap resist = R*5%",
+    "M": "Magic scaling = M*5%, mystic cancel (if M ≥ 4, 1/turn for 2 energy)"
+  },
+  "win": "Deplete opponent’s shield or deck",
+  "zones": [
+    "Deck",
+    "Hand",
+    "Field (Allies/Traps face-down)",
+    "Discard",
+    "Banish"
+  ],
+  "priority": "Priority/Stack system; traps have timings (Instant/Reaction/Persistent)"
+}

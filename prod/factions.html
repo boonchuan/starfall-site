@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Factions & Lore — Starfall Catastrophe</title>
+  <meta name="description" content="Meet the heroes and read the lore of Starfall Catastrophe — six factions rising against cosmic collapse." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root { --void:#0b0f1a; --neon:#00ffff; }
+    body { font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,'Helvetica Neue',Arial;background:var(--void);color:#fff; }
+    .overlay { background:rgba(0,0,0,.55); backdrop-filter:blur(6px); border:1px solid rgba(255,255,255,.08); border-radius:1rem; padding:1.5rem; }
+    section.hero { position:relative; min-height:85vh; display:flex; align-items:center; justify-content:center; }
+    video.bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:-1; }
+    .btn { display:inline-block; padding:.6rem 1rem; border-radius:999px; border:1px solid rgba(255,255,255,.2); }
+    .summary { cursor:pointer; user-select:none; }
+    details[open] .moreless { opacity:.8 }
+    .lead { font-size:1.05rem; }
+  </style>
+</head>
+
+<body class="antialiased selection:bg-cyan-300/30">
+
+<!-- NAV -->
+<header class="sticky top-0 z-50 border-b border-cyan-300/10 bg-black/40 backdrop-blur-md">
+  <div class="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-2 font-black tracking-widest text-xl" style="color:var(--neon)">STARFALL</a>
+    <nav class="flex items-center gap-2 text-sm">
+      <a class="px-3 py-2 rounded hover:text-cyan-300" href="/index.html#play">Play</a>
+      <a class="px-3 py-2 rounded hover:text-cyan-300" href="/gameplay.html">Gameplay</a>
+      <a class="px-3 py-2 rounded hover:text-cyan-300" href="/cards.html">Cards</a>
+      <a class="px-3 py-2 rounded hover:text-cyan-300" href="/blog/index.php">Blog</a>
+      <a class="px-3 py-2 rounded hover:text-cyan-300" href="/kickstarter.html">Kickstarter</a>
+    </nav>
+  </div>
+</header>
+
+<!-- INDEX BANNER -->
+<section class="hero">
+  <video class="bg" autoplay muted loop playsinline>
+    <source src="/media/factions/index.mp4" type="video/mp4">
+  </video>
+  <div class="overlay text-center max-w-4xl">
+    <h1 class="text-5xl md:text-6xl font-black mb-4">The Six Factions</h1>
+    <p class="text-gray-300 text-lg">Short intros first. Click to reveal full lore when you want to dive deeper.</p>
+  </div>
+</section>
+
+<!-- DOCTOR BOON -->
+<section class="hero" id="freeborn">
+  <video class="bg" autoplay muted loop playsinline>
+    <source src="/media/factions/freeborn.mp4" type="video/mp4">
+  </video>
+  <div class="overlay max-w-3xl">
+    <h2 class="text-4xl font-extrabold text-cyan-300">Doctor Boon</h2>
+    <p class="text-sm text-gray-400 mb-2">Faction: The Freeborn</p>
+    <p class="lead text-gray-200 mb-3">Mastermind of biotech and tactics. Boon weaponizes information and timing to outthink the cosmic infection.</p>
+    <p class="text-xs text-gray-400 mb-5"><b>Relics:</b> Neural Halo, Stellar Splicer</p>
+
+    <details>
+      <summary class="summary btn hover:text-cyan-300">Read full lore <span class="moreless">↓</span></summary>
+      <div class="pt-4 text-gray-300 leading-relaxed space-y-4 text-sm md:text-base">
+        <p>The night the heavens split, a shard from the Big Dipper tore through the firmament and fell screaming into the world. Where it struck, matter unraveled—steel quivered like breath, oceans turned to ink, and the air itself felt aware. In the wake of that starfall, dormant horrors woke within humanity’s own scars: the long-faded echoes of pandemics, twisted by cosmic radiation into an infection that did not simply sicken bodies—it rewrote behavior.</p>
+        <p>Doctor Boon was one of the first to see the pattern. While the city panicked, he studied telemetry: hospital charts scrolling into disturbing symmetry, victims marching through identical compulsions—collect, hoard, mimic, converge. This was not madness. It was instruction. And instructions could be hacked.</p>
+        <p>Boon gathered a circle of engineers, couriers, and broken medics who refused to yield. They became the Freeborn, a resistance that prized ingenuity over numbers, improvisation over obedience. In the gutted labs of an abandoned university, Boon improvised weapons of thought and biology—countermeasures that fought the shard on its own terms.</p>
+        <p>His first masterpiece was the Neural Halo, a circlet of biofiber and resonant crystal that could overlay the brain with interference patterns. When worn, it gave the infected clarity for minutes at a time—enough to escape, to fight, to remember who they were. The shard commanded, but the Halo whispered back: you are still you.</p>
+        <p>Then came the Stellar Splicer, a relic assembled from collapsed satellite arrays. It cut fragments of cosmic radiation into usable spectra, weaving beams of impossible light that could burn contagion from air itself. The Freeborn used it to clear districts for brief windows of safety, sanctuaries carved from chaos. Survivors called its light “borrowed stars,” proof that even in ruin, humanity could steal power back from the heavens.</p>
+        <p>The Freeborn’s greatest test came at the Glass Aqueduct, where tens of thousands moved as one, compelled to converge on the crater’s horizon. Boon deployed Halos to break the pattern, then deliberately overloaded the Splicer to scatter fragments of stellar light across the aqueduct’s arches. For a heartbeat the sequence faltered, and the crowd awakened. Some screamed. Others wept. But for the first time, the infection had been denied.</p>
+        <p>That night, beneath auroras of teal and purple where the shard’s wake scraped the sky, Boon recorded his creed: “Tactics are not war. They are survival extended by wit. We will not outnumber the shard, nor outgun it. But we can outthink it. The Freeborn exist to prove choice is stronger than sequence.”</p>
+        <p>The city whispered his name as a rumor, then a rallying cry. In a world of compulsion, Doctor Boon had made defiance into doctrine. And where the Freeborn marched, humanity remembered it was still free.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- HIGH PRIESTESS NYRA -->
+<section class="hero" id="elemental">
+  <video class="bg" autoplay muted loop playsinline>
+    <source src="/media/factions/elemental.mp4" type="video/mp4">
+  </video>
+  <div class="overlay max-w-3xl">
+    <h2 class="text-4xl font-extrabold text-red-400">High Priestess Nyra</h2>
+    <p class="text-sm text-gray-400 mb-2">Faction: Elemental Flame</p>
+    <p class="lead text-gray-200 mb-3">Sacred purifier of the Ember Crown. Nyra treats fire as ritual transformation — cleansing corruption so life can return stronger.</p>
+    <p class="text-xs text-gray-400 mb-5"><b>Relics:</b> Phoenix Halberd, Ember Sigils</p>
+
+    <details>
+      <summary class="summary btn hover:text-red-300">Read full lore <span class="moreless">↓</span></summary>
+      <div class="pt-4 text-gray-300 leading-relaxed space-y-4 text-sm md:text-base">
+        <p>High Priestess Nyra, guardian of the ancient fire altars, heard the call of the celestial shard as it ignited sacred embers deep within the volcanic peaks. From the heart of the Ember Crown, she felt the shard’s pulse awaken something older than memory — a will of flame, divine and alive.</p>
+        <p>Channeling the Elemental Flame, Nyra sought not conquest but cleansing. To her, the world’s corruption was not to be punished, but purified. Fire was not an ending — it was transformation. Each inferno she summoned was a ritual, a prayer made visible, burning away the sickness that had taken root in the hearts of humankind.</p>
+        <p>To the uninitiated, her flames looked like apocalypse. Cities reduced to cinders. Forests turned to ash. Yet in the silence after the blaze, life returned — stronger, untainted, reborn. Her followers saw it clearly. Every spark carried the promise of renewal. Every ember whispered that destruction was merely the soil from which creation would rise again.</p>
+        <p>Under her guidance, the Flameborn rose — torchbearers of faith and fear alike. They moved through the dying world with light in their hands, their crimson robes flickering in the wind. Some called them zealots, others saviors. But to Nyra, only the path mattered.</p>
+        <p>And so, upon the highest altar of the Ember Crown, she vowed — “Let the world be remade through sacred flame. Let all corruption burn, and from its ashes, rise anew.”</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- VIRELIA -->
+<section class="hero" id="cradle">
+  <video class="bg" autoplay muted loop playsinline>
+    <source src="/media/factions/cradle.mp4" type="video/mp4">
+  </video>
+  <div class="overlay max-w-3xl">
+    <h2 class="text-4xl font-extrabold text-green-400">Virelia</h2>
+    <p class="text-sm text-gray-400 mb-2">Faction: Cradle of the Root</p>
+    <p class="lead text-gray-200 mb-3">Defender of life and balance — a living pact between primal nature and cleansing flame.</p>
+
+    <details>
+      <summary class="summary btn hover:text-green-300">Read full lore <span class="moreless">↓</span></summary>
+      <div class="pt-4 text-gray-300 leading-relaxed space-y-4 text-sm md:text-base">
+        <p>Deep in the heart of primeval forests, Virelia, a spirit-bonded warrior, communed with the ancient roots of the earth. As the infection spread, nature itself cried out in pain. Virelia fused her flame-touched powers with the will of the forest to create living sanctuaries, places where the infection could not reach.</p>
+        <p>Her alliance, the Cradle of the Root, stood as the last bastion of balance between nature and fire — not conquest, but renewal through growth and guardianship.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- SEL OF THE LUMINOUS -->
+<section class="hero" id="codex">
+  <video class="bg" autoplay muted loop playsinline>
+    <source src="/media/factions/codex.mp4" type="video/mp4">
+  </video>
+  <div class="overlay max-w-3xl">
+    <h2 class="text-4xl font-extrabold text-blue-400">Sel of the Luminous</h2>
+    <p class="text-sm text-gray-400 mb-2">Faction: Codex of the Eternal Spark</p>
+    <p class="lead text-gray-200 mb-3">Guardian of lost light and impossible knowledge — decoding the infection’s true nature.</p>
+
+    <details>
+      <summary class="summary btn hover:text-blue-300">Read full lore <span class="moreless">↓</span></summary>
+      <div class="pt-4 text-gray-300 leading-relaxed space-y-4 text-sm md:text-base">
+        <p>Sel uncovered the Cosmic Codex — a tome of infinite light and data threads, hidden for centuries in a celestial library. As she deciphered its runes, knowledge of the infection’s true nature came to light.</p>
+        <p>The Codex of the Eternal Spark emerged to preserve knowledge and wield the mystic energy of forgotten civilizations. Sel’s mission: to reforge the link between cosmic truth and mortal existence.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- EMBER GLOW -->
+<section class="hero" id="ember">
+  <video class="bg" autoplay muted loop playsinline>
+    <source src="/media/factions/ember.mp4" type="video/mp4">
+  </video>
+  <div class="overlay max-w-3xl">
+    <h2 class="text-4xl font-extrabold text-orange-400">Ember Glow</h2>
+    <p class="text-sm text-gray-400 mb-2">Faction: The Ember Ashes</p>
+    <p class="lead text-gray-200 mb-3">Vengeance tempered by duty. Ember turns wrath into protection for the innocent.</p>
+
+    <details>
+      <summary class="summary btn hover:text-orange-300">Read full lore <span class="moreless">↓</span></summary>
+      <div class="pt-4 text-gray-300 leading-relaxed space-y-4 text-sm md:text-base">
+        <p>Ember Glow rose from the ashes of her destroyed homeland, her fury burning hotter than any flame. Once a humble warrior, she became an avatar of vengeance, leading the Ember Ashes — a faction dedicated to punishing those who had succumbed to the infection’s darkness.</p>
+        <p>Her sword, forged from the remnants of celestial fire, blazed with unquenchable wrath, cutting through the void-born monstrosities.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ARKHELIOS DRAGON -->
+<section class="hero" id="void">
+  <video class="bg" autoplay muted loop playsinline>
+    <source src="/media/factions/void.mp4" type="video/mp4">
+  </video>
+  <div class="overlay max-w-3xl">
+    <h2 class="text-4xl font-extrabold text-purple-400">Arkhelios Dragon</h2>
+    <p class="text-sm text-gray-400 mb-2">Faction: The Void Ones</p>
+    <p class="lead text-gray-200 mb-3">A cosmic entity of void and infection, bending reality toward despair.</p>
+
+    <details>
+      <summary class="summary btn hover:text-purple-300">Read full lore <span class="moreless">↓</span></summary>
+      <div class="pt-4 text-gray-300 leading-relaxed space-y-4 text-sm md:text-base">
+        <p>From the cosmic rift above, Arkhelios Dragon descended — a colossal being born of void energy and the shard’s corruption. Its presence warped reality, spreading fear and despair. The Void Ones, remnants of the infection’s will, rallied under its shadow.</p>
+        <p>The factions knew that to defeat Arkhelios would require an unprecedented alliance, yet old grudges stood in their way.</p>
+      </div>
+    </details>
+  </div>
+</section>
+
+<footer class="bg-black/80 border-t border-cyan-300/10 mt-10">
+  <div class="max-w-7xl mx-auto px-4 py-10 text-sm text-gray-400">
+    © 2025 Lim Boon Chuan. All rights reserved. Starfall Catastrophe is an independent, original trading card game.
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "doctor-boon",
+    "name": "Doctor Boon",
+    "tag": "The Freeborn Innovator",
+    "poster": "./assets/heroes/doctor-boon.jpg",
+    "video": "./assets/heroes/doctor-boon.mp4",
+    "stats": "5/3/2/4",
+    "faction": "Freeborn",
+    "blurb": "A maverick scientist whose Freeborn arc bends technology to outwit the cosmic infection."
+  },
+  {
+    "slug": "nyra",
+    "name": "Nyra",
+    "tag": "The Elemental Flame",
+    "poster": "./assets/heroes/nyra.jpg",
+    "video": "./assets/heroes/nyra.mp4",
+    "stats": "TBD",
+    "faction": "Elemental Flame",
+    "blurb": "Born of ember and will, Nyra channels living flame to shield those she loves."
+  },
+  {
+    "slug": "virelia",
+    "name": "Virelia",
+    "tag": "Cradle of the Root",
+    "poster": "./assets/heroes/virelia.jpg",
+    "video": "./assets/heroes/virelia.mp4",
+    "stats": "TBD",
+    "faction": "Cradle of the Root",
+    "blurb": "Spirit-bonded to ancient forests, Virelia fuses nature with flame to form living sanctuaries."
+  },
+  {
+    "slug": "sel",
+    "name": "Sel",
+    "tag": "Shard-Seer",
+    "poster": "./assets/heroes/sel.jpg",
+    "video": "./assets/heroes/sel.mp4",
+    "stats": "TBD",
+    "faction": "Shard-Seers",
+    "blurb": "A mystic seer who reads the fractures in reality to turn fate itself into advantage."
+  },
+  {
+    "slug": "ember",
+    "name": "Ember",
+    "tag": "Ashwing Duelist",
+    "poster": "./assets/heroes/ember.jpg",
+    "video": "./assets/heroes/ember.mp4",
+    "stats": "TBD",
+    "faction": "Ashwing",
+    "blurb": "A swift duelist whose ash-feathered arts turn sparks into decisive strikes."
+  },
+  {
+    "slug": "arkhelios",
+    "name": "Arkhelios",
+    "tag": "Celestial Warden",
+    "poster": "./assets/heroes/arkhelios.jpg",
+    "video": "./assets/heroes/arkhelios.mp4",
+    "stats": "TBD",
+    "faction": "Celestial Wardens",
+    "blurb": "Guardian of star-wards and bearer of ancient oaths from the Shard of Heaven."
+  }
+]
