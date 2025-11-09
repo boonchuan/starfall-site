@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Origin Cycle — Starfall Catastrophe</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    body{
+      background:#0b0b0c;
+      color:#eee;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.6;
+    }
+    main{max-width:960px;margin:40px auto;padding:0 18px}
+    h1{text-align:center;font-size:2rem;margin-bottom:.25rem}
+    p.muted{text-align:center;color:#aaa;margin-top:0}
+    details{border:1px solid #2a2a2e;border-radius:12px;padding:.75rem 1rem;background:#121214;margin-top:1rem}
+    summary{cursor:pointer;font-weight:600}
+    video,img{width:100%;border-radius:12px;margin-top:.6rem}
+    video{aspect-ratio:16/9;object-fit:cover;filter:hue-rotate(285deg)saturate(1.25)brightness(.9)}
+    .intro{
+      position:fixed;inset:0;display:grid;place-items:center;
+      background:radial-gradient(120% 120% at 70% 20%,rgba(110,55,160,.5) 0%,rgba(30,15,45,.55) 50%,rgba(5,5,8,.85) 100%);
+      animation:introFade 2.8s ease forwards;
+      color:#d9c4ee;text-shadow:0 0 18px rgba(140,90,210,.65);
+      z-index:9999;
+    }
+    @keyframes introFade{0%{opacity:1}80%{opacity:1}100%{opacity:0;visibility:hidden}}
+  </style>
+</head>
+<body>
+  <!--#include virtual="/assets/html/header.html" -->
+
+  <div class="intro"><h2>Starfall Catastrophe</h2></div>
+
+  <main>
+    <h1>Origin Cycle</h1>
+    <p class="muted">The eight chapters that began <strong>Starfall Catastrophe</strong>.</p>
+
+    <details open>
+      <summary><strong>Chapter 1 – Shard of Heaven</strong> · Doctor Boon · The Freeborn</summary>
+      <img src="/assets/img/lore/chapter_1.png" alt="">
+      <video src="/assets/mp4/lore/ch1.mp4" autoplay loop muted playsinline></video>
+      <p>The Freeborn began their crusade to reclaim the heavens …</p>
+    </details>
+
+    <details>
+      <summary><strong>Chapter 2 – Flames of Renewal</strong> · High Priestess Nyra · Elemental Flame</summary>
+      <img src="/assets/img/lore/chapter_2.png" alt="">
+      <video src="/assets/mp4/lore/ch2.mp4" autoplay loop muted playsinline></video>
+      <p>Nyra’s sacred fire cleansed the corruption …</p>
+    </details>
+
+    <details>
+      <summary><strong>Chapter 3 – Roots of Eternity</strong> · Virelia · Cradle of the Root</summary>
+      <img src="/assets/img/lore/chapter_3.png" alt="">
+      <video src="/assets/mp4/lore/ch3.mp4" autoplay loop muted playsinline></video>
+      <p>Deep in the primeval forests, Virelia merged flame and root …</p>
+    </details>
+
+    <details>
+      <summary><strong>Chapter 4 – Echo of Glass</strong> · Sel · The Reflected Mind</summary>
+      <img src="/assets/img/lore/chapter_4.png" alt="">
+      <video src="/assets/mp4/lore/ch4.mp4" autoplay loop muted playsinline></video>
+      <p>Mirrors that remember … the world of thought collapsing into itself.</p>
+    </details>
+
+    <details>
+      <summary><strong>Chapter 5 – Cinders of Tomorrow</strong> · Ember · The Lost Forge</summary>
+      <img src="/assets/img/lore/chapter_5.png" alt="">
+      <video src="/assets/mp4/lore/ch5.mp4" autoplay loop muted playsinline></video>
+      <p>Dying stars reborn as machines … Ember shaped future from ash.</p>
+    </details>
+
+    <details>
+      <summary><strong>Chapter 6 – Crown of the Void</strong> · Arkhelios · Fallen Celestial</summary>
+      <img src="/assets/img/lore/chapter_6.jpg" alt="">
+      <video src="/assets/mp4/lore/ch6.mp4" autoplay loop muted playsinline></video>
+      <p>The warden defies Heaven … a rebellion written in starlight.</p>
+    </details>
+
+    <details>
+      <summary><strong>Chapter 7 – Serpent of Stars</strong> · Cosmic Herald</summary>
+      <img src="/assets/img/lore/chapter_7.png" alt="">
+      <video src="/assets/mp4/lore/ch7.mp4" autoplay loop muted playsinline></video>
+      <p>Herald of convergence … the serpent weaves through constellations.</p>
+    </details>
+
+    <details>
+      <summary><strong>Chapter 8 – Final Convergence</strong> · All Factions</summary>
+      <img src="/assets/img/lore/chapter_8.jpg" alt="">
+      <video src="/assets/mp4/lore/ch8.mp4" autoplay loop muted playsinline></video>
+      <p>The six lights merge, and the Starfall begins.</p>
+    </details>
+  </main>
+
+  <!--#include virtual="/assets/html/footer.html" -->
+</body>
+</html>

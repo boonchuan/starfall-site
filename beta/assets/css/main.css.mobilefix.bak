@@ -392,28 +392,3 @@ body{
   -webkit-text-fill-color:transparent;
   animation: starfallAurora 12s linear infinite;
 }
-/* --- MOBILE LAYOUT FIXES --- */
-html, body { max-width:100%; overflow-x:hidden; }
-
-/* Ensure all media never exceed the viewport */
-img, video { max-width:100%; height:auto; display:block; }
-
-/* Containers account for padding; prevent overflow */
-.container { box-sizing:border-box; }
-
-/* Header/nav can wrap on small screens */
-.nav-wrap { display:flex; flex-wrap:wrap; }
-.main-nav  { display:flex; flex-wrap:wrap; gap:18px; }
-
-/* Contain the hero overlay (prevents absolute child from causing overflow) */
-.hero-media { position:relative; overflow:hidden; }
-.hero-media img[alt="Starfall Catastrophe Banner"] { max-width:90%; }
-
-/* Tone down animations on mobile so scaling doesn't push width */
-@media (max-width: 768px){
-  .main-nav a      { font-size:16px; }
-  .main-nav a.active,
-  .main-nav a:hover,
-  .main-nav a:focus{ animation:none; }  /* disable pulse/aurora on tap */
-  .nav-wrap        { padding:18px 0; }
-}

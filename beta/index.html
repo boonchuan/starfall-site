@@ -1,82 +1,109 @@
-    <!doctype html>
-    <html lang="en">
-    <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <title>Index — Starfall Catastrophe</title>
-      <link rel="stylesheet" href="./assets/css/main.css">
-      <script defer src="./assets/js/main.js"></script>
-      <link rel="icon" type="image/x-icon" href="./assets/img/favicon.ico">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Starfall Catastrophe — The TCG of Shattered Realms</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    body{
+      background:#0b0b0c;color:#eee;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.6;margin:0;padding:0;
+    }
+    header,footer{text-align:center;padding:1.5rem 1rem}
+    header{border-bottom:1px solid #2a2a2e}
+    footer{border-top:1px solid #2a2a2e;color:#888;margin-top:3rem}
+    main{max-width:1080px;margin:0 auto;padding:2rem 1rem}
+    h1{font-size:2.5rem;margin-bottom:.25rem;text-align:center;color:#d9c4ee}
+    h2{color:#d9c4ee;margin-top:2rem;text-align:center}
+    p.lead{text-align:center;color:#bbb;font-size:1.1rem;margin-top:0}
+    .btns{text-align:center;margin:2rem 0}
+    .btn{
+      display:inline-block;padding:.7rem 1.5rem;margin:.3rem;border-radius:10px;
+      background:#3a254d;color:#fff;text-decoration:none;font-weight:600;
+      transition:background .25s;
+    }
+    .btn:hover{background:#5a3a75}
+    .heroes{
+      display:grid;gap:1.5rem;margin-top:2rem;
+    }
+    @media(min-width:720px){.heroes{grid-template-columns:repeat(3,1fr)}}
+    .hero{
+      background:#121214;border:1px solid #2a2a2e;border-radius:14px;
+      overflow:hidden;text-align:center;padding:1rem;transition:transform .3s;
+    }
+    .hero:hover{transform:scale(1.03)}
+    .hero img{width:100%;border-radius:12px;height:240px;object-fit:cover;margin-bottom:.5rem}
+    .hero h3{margin:.3rem 0;color:#d9c4ee}
+    .hero p{color:#aaa;font-size:.9rem;margin:0}
+  </style>
 </head>
-    <body>
-    <header class="site-header">
-  <div class="container nav-wrap">
-    <a class="brand" href="./index.html"><video class="logo" autoplay muted loop playsinline poster="./assets/img/emblem.png"><source src="./assets/img/emblem.mp4" type="video/mp4"></video></a>
-    <nav class="main-nav">
-      <a href="./index.html">Index</a>
-      <a href="./heroes.html">Heroes</a>
-      <a href="./lore.html">Lore</a>
-      <a href="./gameplay.html">Game&nbsp;Play</a>
-      <a href="./blog.html">Blog</a>
-      <a href="./demo.html">Demo</a>
-      <a href="./members.html">Members</a>
-    </nav>
-    <nav class="social-nav" aria-label="Social">
-      <a href="https://x.com/StarfallCatas" target="_blank" rel="noopener" aria-label="X / Twitter">
-        <svg viewBox="0 0 24 24" class="icon"><path d="M18 2h3l-7 8 8 10h-6l-5-6-6 6H2l8-9L2 2h6l5 6 5-6z"/></svg>
-      </a>
-      <a href="https://www.instagram.com/starfallcatastrophe/" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" class="icon"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm5 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm6.5-.75a1.25 1.25 0 1 0 0 2.5 1.25 1.25 0 0 0 0-2.5z"/></svg>
-      </a>
-      <a href="https://www.facebook.com/people/Starfall-Catastrophe/61578528671100/" target="_blank" rel="noopener" aria-label="Facebook">
-        <svg viewBox="0 0 24 24" class="icon"><path d="M13 22v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3V2h-3a5 5 0 0 0-5 5v3H6v4h3v8h4z"/></svg>
-      </a>
-      <a href="https://discord.gg/tr6nMuGc38" target="_blank" rel="noopener" aria-label="Discord">
-        <svg viewBox="0 0 24 24" class="icon"><path d="M20 4a18 18 0 0 0-4.5-1.5l-.5 1.1a16 16 0 0 1 3.9 1.3c-3.6-1.7-7.3-1.7-11 0a16 16 0 0 1 3.9-1.3L11 2.5A18 18 0 0 0 6.5 4C3.2 8.9 2.7 13.7 3 18c1.9 1.4 3.8 2.2 5.6 2.7l.8-1.9c-.9-.3-1.8-.7-2.7-1.2.2-.1.5-.3.7-.4 4.9 2.3 9.7 2.3 14.6 0 .2.1.5.3.7.4-.9.5-1.8.9-2.7 1.2l.8 1.9c1.8-.5 3.7-1.3 5.6-2.7.3-4.3-.2-9.1-3.5-14zM9.5 14c-.8 0-1.5-.9-1.5-2s.7-2 1.5-2 1.5.9 1.5 2-.7 2-1.5 2zm5 0c-.8 0-1.5-.9-1.5-2s.7-2 1.5-2 1.5.9 1.5 2-.7 2-1.5 2z"/></svg>
-      </a>
-    </nav>
-  </div>
-</header>
-    <main class="page">
+<body>
 
-<section class="hero-section">
-  <div class="hero-media">
-  <img src="./assets/img/starfall_logo.png?v=2" alt="Starfall Catastrophe Banner" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);max-width:60%;opacity:.85;z-index:10;">
-    <img src="./assets/img/starfall_logo.png" alt="Starfall Catastrophe Banner" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);max-width:60%;opacity:.85;z-index:10;">
-  <video autoplay muted loop playsinline poster="./assets/img/hero-poster.jpg">
-      <source src="./assets/hero/starfall-hero.mp4" type="video/mp4">
-    </video>
-    <div class="hero-overlay">
-      <div>
-        <h1>Starfall Catastrophe</h1>
-        <p>A tactical TCG where heroes bend fate with T/S/R/M mastery.</p>
-        <div class="cta-row">
-          <a class="btn" href="./demo.html">Try the Demo</a>
-          <a class="btn outline" href="./gameplay.html">How to Play</a>
-        </div>
-      </div>
+<header>
+  <nav>
+    <a href="/index.html" style="color:#eee;text-decoration:none;font-weight:800;margin:0 1rem">⭐ Starfall Catastrophe</a>
+    <a href="/lore.html" style="color:#eee;text-decoration:none;margin:0 1rem">Lore</a>
+    <a href="/gameplay.html" style="color:#eee;text-decoration:none;margin:0 1rem">Gameplay</a>
+    <a href="https://starfallcatastrophe.com/blog/index.php" target="_blank" style="color:#eee;text-decoration:none;margin:0 1rem">News & Blog →</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Starfall Catastrophe</h1>
+  <p class="lead">
+    Across six shattered realms, heroes rise from the wreckage of fallen stars.  
+    Wield tactics, mysticism, and resilience in a duel for the fate of creation.
+  </p>
+
+  <div class="btns">
+    <a href="/lore.html" class="btn">📜 Discover the Lore</a>
+    <a href="/gameplay.html" class="btn">⚔️ Learn to Play</a>
+  </div>
+
+  <h2>The Six Heroes</h2>
+  <div class="heroes">
+    <div class="hero">
+      <img src="/assets/img/heroes/doctor_boon.jpg" alt="Doctor Boon">
+      <h3>Doctor Boon</h3>
+      <p>Mastermind of biotech and tactics.  Leader of the Freeborn.</p>
+    </div>
+    <div class="hero">
+      <img src="/assets/img/heroes/nyra.jpg" alt="High Priestess Nyra">
+      <h3>High Priestess Nyra</h3>
+      <p>Flame-born purifier whose light redeems a corrupted world.</p>
+    </div>
+    <div class="hero">
+      <img src="/assets/img/heroes/virelia.jpg" alt="Virelia">
+      <h3>Virelia</h3>
+      <p>Spirit of root and ember — protector of the living forests.</p>
+    </div>
+    <div class="hero">
+      <img src="/assets/img/heroes/sel.jpg" alt="Sel">
+      <h3>Sel</h3>
+      <p>Echo of glass and thought.  Reflections that shape reality.</p>
+    </div>
+    <div class="hero">
+      <img src="/assets/img/heroes/ember.jpg" alt="Ember">
+      <h3>Ember</h3>
+      <p>Forgemaster of dying stars.  Rebuilder of tomorrow’s machines.</p>
+    </div>
+    <div class="hero">
+      <img src="/assets/img/heroes/arkhelios.jpg" alt="Arkhelios">
+      <h3>Arkhelios</h3>
+      <p>The Fallen Celestial who defies Heaven itself.</p>
     </div>
   </div>
-</section>
-<section class="grid-2 container">
-  <div class="card">
-    <h2>Lore shines across the cosmos</h2>
-    <p>Dive into chapters, factions, and the heroes of Starfall Catastrophe.</p>
-    <a class="link" href="./lore.html">Read the Lore →</a>
-  </div>
-  <div class="card">
-    <h2>Gameplay that rewards mastery</h2>
-    <p>Learn the T/S/R/M system and become a legend.</p>
-    <a class="link" href="./gameplay.html">Learn the Rules →</a>
-  </div>
-</section>
 
-    </main>
-    <footer class="site-footer">
-  <div class="container">
-    <p>© 2025 Lim Boon Chuan. All rights reserved.<br>Starfall Catastrophe is an independent, original trading card game. It is not affiliated with Starfall Education Foundation, Star Wars, or any other brand using the term “Starfall.”</p>
+  <div class="btns">
+    <a href="/lore.html" class="btn">Explore Lore Archives →</a>
   </div>
+</main>
+
+<footer>
+  <div>© 2025 Lim Boon Chuan · Starfall Catastrophe Project</div>
 </footer>
-    <script src="./assets/js/main.js" defer></script>
+
 </body>
-    </html>
+</html>
