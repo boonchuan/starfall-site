@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Starfall Catastrophe — The TCG of Shattered Realms</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <style>
+    body{
+      background:#0b0b0c;color:#eee;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      line-height:1.6;margin:0;padding:0;
+    }
+    header,footer{text-align:center;padding:1.5rem 1rem}
+    header{border-bottom:1px solid #2a2a2e}
+    footer{border-top:1px solid #2a2a2e;color:#888;margin-top:3rem}
+    main{max-width:1080px;margin:0 auto;padding:2rem 1rem}
+    h1{font-size:2.5rem;margin-bottom:.25rem;text-align:center;color:#d9c4ee}
+    h2{color:#d9c4ee;margin-top:2rem;text-align:center}
+    p.lead{text-align:center;color:#bbb;font-size:1.1rem;margin-top:0}
+    .btns{text-align:center;margin:2rem 0}
+    .btn{
+      display:inline-block;padding:.7rem 1.5rem;margin:.3rem;border-radius:10px;
+      background:#3a254d;color:#fff;text-decoration:none;font-weight:600;
+      transition:background .25s;
+    }
+    .btn:hover{background:#5a3a75}
+    .heroes{
+      display:grid;gap:1.5rem;margin-top:2rem;
+    }
+    @media(min-width:720px){.heroes{grid-template-columns:repeat(3,1fr)}}
+    .hero{
+      background:#121214;border:1px solid #2a2a2e;border-radius:14px;
+      overflow:hidden;text-align:center;padding:1rem;transition:transform .3s;
+    }
+    .hero:hover{transform:scale(1.03)}
+    .hero img{width:100%;border-radius:12px;height:240px;object-fit:cover;margin-bottom:.5rem}
+    .hero h3{margin:.3rem 0;color:#d9c4ee}
+    .hero p{color:#aaa;font-size:.9rem;margin:0}
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="/index.html" style="color:#eee;text-decoration:none;font-weight:800;margin:0 1rem">⭐ Starfall Catastrophe</a>
+    <a href="/lore.html" style="color:#eee;text-decoration:none;margin:0 1rem">Lore</a>
+    <a href="/gameplay.html" style="color:#eee;text-decoration:none;margin:0 1rem">Gameplay</a>
+    <a href="https://starfallcatastrophe.com/blog/index.php" target="_blank" style="color:#eee;text-decoration:none;margin:0 1rem">News & Blog →</a>
+  </nav>
+</header>
+
+<main>
+  <h1>Starfall Catastrophe</h1>
+  <p class="lead">
+    Across six shattered realms, heroes rise from the wreckage of fallen stars.  
+    Wield tactics, mysticism, and resilience in a duel for the fate of creation.
+  </p>
+
+  <div class="btns">
+    <a href="/lore.html" class="btn">📜 Discover the Lore</a>
+    <a href="/gameplay.html" class="btn">⚔️ Learn to Play</a>
+  </div>
+
+  <h2>The Six Heroes</h2>
+  <div class="heroes">
+    <div class="hero">
+      <img src="/assets/img/heroes/doctor_boon.jpg" alt="Doctor Boon">
+      <h3>Doctor Boon</h3>
+      <p>Mastermind of biotech and tactics.  Leader of the Freeborn.</p>
+    </div>
+    <div class="hero">
+      <img src="/assets/img/heroes/nyra.jpg" alt="High Priestess Nyra">
+      <h3>High Priestess Nyra</h3>
+      <p>Flame-born purifier whose light redeems a corrupted world.</p>
+    </div>
+    <div class="hero">
+      <img src="/assets/img/heroes/virelia.jpg" alt="Virelia">
+      <h3>Virelia</h3>
+      <p>Spirit of root and ember — protector of the living forests.</p>
+    </div>
+    <div class="hero">
+      <img src="/assets/img/heroes/sel.jpg" alt="Sel">
+      <h3>Sel</h3>
+      <p>Echo of glass and thought.  Reflections that shape reality.</p>
+    </div>
+    <div class="hero">
+      <img src="/assets/img/heroes/ember.jpg" alt="Ember">
+      <h3>Ember</h3>
+      <p>Forgemaster of dying stars.  Rebuilder of tomorrow’s machines.</p>
+    </div>
+    <div class="hero">
+      <img src="/assets/img/heroes/arkhelios.jpg" alt="Arkhelios">
+      <h3>Arkhelios</h3>
+      <p>The Fallen Celestial who defies Heaven itself.</p>
+    </div>
+  </div>
+
+  <div class="btns">
+    <a href="/lore.html" class="btn">Explore Lore Archives →</a>
+  </div>
+</main>
+
+<footer>
+  <div>© 2025 Lim Boon Chuan · Starfall Catastrophe Project</div>
+</footer>
+
+</body>
+</html>

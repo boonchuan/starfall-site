@@ -1,109 +1,236 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Starfall Catastrophe — The TCG of Shattered Realms</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="/assets/css/main.css">
+  <meta charset="UTF-8" />
+  <title>HNL – HyperSoccer National League</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="HyperSoccer National League – 18-team global HyperSoccer ecosystem with original clubs recorded on this page." />
   <style>
-    body{
-      background:#0b0b0c;color:#eee;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
-      line-height:1.6;margin:0;padding:0;
+    :root {
+      --bg: #020617;
+      --accent1: #22d3ee;
+      --accent2: #22c55e;
+      --accent3: #f97316;
+      --card: rgba(15,23,42,0.96);
+      --border: rgba(148,163,184,0.45);
+      --text: #e5e7eb;
+      --muted: #9ca3af;
     }
-    header,footer{text-align:center;padding:1.5rem 1rem}
-    header{border-bottom:1px solid #2a2a2e}
-    footer{border-top:1px solid #2a2a2e;color:#888;margin-top:3rem}
-    main{max-width:1080px;margin:0 auto;padding:2rem 1rem}
-    h1{font-size:2.5rem;margin-bottom:.25rem;text-align:center;color:#d9c4ee}
-    h2{color:#d9c4ee;margin-top:2rem;text-align:center}
-    p.lead{text-align:center;color:#bbb;font-size:1.1rem;margin-top:0}
-    .btns{text-align:center;margin:2rem 0}
-    .btn{
-      display:inline-block;padding:.7rem 1.5rem;margin:.3rem;border-radius:10px;
-      background:#3a254d;color:#fff;text-decoration:none;font-weight:600;
-      transition:background .25s;
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(34,211,238,0.25) 0, transparent 45%),
+        radial-gradient(circle at top right, rgba(34,197,94,0.25) 0, transparent 50%),
+        radial-gradient(circle at bottom, rgba(249,115,22,0.25) 0, #020617 60%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
     }
-    .btn:hover{background:#5a3a75}
-    .heroes{
-      display:grid;gap:1.5rem;margin-top:2rem;
+
+    header {
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      background: radial-gradient(circle at top, rgba(15,23,42,0.98), rgba(15,23,42,0.92));
+      border-bottom: 1px solid rgba(148,163,184,0.4);
     }
-    @media(min-width:720px){.heroes{grid-template-columns:repeat(3,1fr)}}
-    .hero{
-      background:#121214;border:1px solid #2a2a2e;border-radius:14px;
-      overflow:hidden;text-align:center;padding:1rem;transition:transform .3s;
+    header h1 {
+      margin: 0;
+      font-size: 1.05rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #facc15;
     }
-    .hero:hover{transform:scale(1.03)}
-    .hero img{width:100%;border-radius:12px;height:240px;object-fit:cover;margin-bottom:.5rem}
-    .hero h3{margin:.3rem 0;color:#d9c4ee}
-    .hero p{color:#aaa;font-size:.9rem;margin:0}
+    header span {
+      display: block;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 22px 16px 40px;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.6);
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      gap: 6px;
+      background: rgba(15,23,42,0.75);
+    }
+    .pill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34,197,94,0.9);
+    }
+
+    .hero {
+      margin-bottom: 24px;
+    }
+    .hero h2 {
+      margin: 8px 0 8px;
+      font-size: 1.6rem;
+    }
+    .hero p {
+      margin: 4px 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 720px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      padding: 16px 16px 18px;
+      box-shadow: 0 22px 50px rgba(0,0,0,0.55);
+      margin-bottom: 18px;
+    }
+    .card h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+    }
+    .card .sub {
+      margin: 0 0 12px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.84rem;
+    }
+    th, td {
+      padding: 6px 8px;
+      text-align: left;
+      border-bottom: 1px solid rgba(55,65,81,0.85);
+      white-space: nowrap;
+    }
+    th {
+      font-weight: 600;
+      color: var(--text);
+      background: rgba(15,23,42,0.98);
+    }
+    tbody tr:nth-child(odd) {
+      background: rgba(15,23,42,0.9);
+    }
+    tbody tr:nth-child(even) {
+      background: rgba(17,24,39,0.9);
+    }
+    tbody tr:hover {
+      background: rgba(31,41,55,0.95);
+    }
+
+    .footnote {
+      margin-top: 20px;
+      font-size: 0.78rem;
+      color: #6b7280;
+      line-height: 1.4;
+    }
+    .footnote strong {
+      color: #9ca3af;
+    }
   </style>
 </head>
 <body>
-
-<header>
-  <nav>
-    <a href="/index.html" style="color:#eee;text-decoration:none;font-weight:800;margin:0 1rem">⭐ Starfall Catastrophe</a>
-    <a href="/lore.html" style="color:#eee;text-decoration:none;margin:0 1rem">Lore</a>
-    <a href="/gameplay.html" style="color:#eee;text-decoration:none;margin:0 1rem">Gameplay</a>
-    <a href="https://starfallcatastrophe.com/blog/index.php" target="_blank" style="color:#eee;text-decoration:none;margin:0 1rem">News & Blog →</a>
-  </nav>
-</header>
-
-<main>
-  <h1>Starfall Catastrophe</h1>
-  <p class="lead">
-    Across six shattered realms, heroes rise from the wreckage of fallen stars.  
-    Wield tactics, mysticism, and resilience in a duel for the fate of creation.
-  </p>
-
-  <div class="btns">
-    <a href="/lore.html" class="btn">📜 Discover the Lore</a>
-    <a href="/gameplay.html" class="btn">⚔️ Learn to Play</a>
-  </div>
-
-  <h2>The Six Heroes</h2>
-  <div class="heroes">
-    <div class="hero">
-      <img src="/assets/img/heroes/doctor_boon.jpg" alt="Doctor Boon">
-      <h3>Doctor Boon</h3>
-      <p>Mastermind of biotech and tactics.  Leader of the Freeborn.</p>
+  <header>
+    <div>
+      <h1>HNL – HyperSoccer National League</h1>
+      <span>18-team global HyperSoccer ecosystem • playhnl.com</span>
     </div>
-    <div class="hero">
-      <img src="/assets/img/heroes/nyra.jpg" alt="High Priestess Nyra">
-      <h3>High Priestess Nyra</h3>
-      <p>Flame-born purifier whose light redeems a corrupted world.</p>
+    <div class="pill">
+      <span class="pill-dot"></span>
+      Founding Season Canon
     </div>
-    <div class="hero">
-      <img src="/assets/img/heroes/virelia.jpg" alt="Virelia">
-      <h3>Virelia</h3>
-      <p>Spirit of root and ember — protector of the living forests.</p>
-    </div>
-    <div class="hero">
-      <img src="/assets/img/heroes/sel.jpg" alt="Sel">
-      <h3>Sel</h3>
-      <p>Echo of glass and thought.  Reflections that shape reality.</p>
-    </div>
-    <div class="hero">
-      <img src="/assets/img/heroes/ember.jpg" alt="Ember">
-      <h3>Ember</h3>
-      <p>Forgemaster of dying stars.  Rebuilder of tomorrow’s machines.</p>
-    </div>
-    <div class="hero">
-      <img src="/assets/img/heroes/arkhelios.jpg" alt="Arkhelios">
-      <h3>Arkhelios</h3>
-      <p>The Fallen Celestial who defies Heaven itself.</p>
-    </div>
-  </div>
+  </header>
 
-  <div class="btns">
-    <a href="/lore.html" class="btn">Explore Lore Archives →</a>
-  </div>
-</main>
+  <main>
+    <section class="hero">
+      <h2>Founding Season – 18 Clubs Locked In</h2>
+      <p>
+        This page is the canonical record of the founding <strong>18 clubs</strong> of the
+        HyperSoccer National League. These names are fixed here first, before databases and
+        APIs, so they are never lost.
+      </p>
+      <p>
+        Later, the same clubs will be wired to live standings and fixtures. For now, this is
+        the master list: our own teams, our own league, our own ecosystem.
+      </p>
+    </section>
 
-<footer>
-  <div>© 2025 Lim Boon Chuan · Starfall Catastrophe Project</div>
-</footer>
+    <section class="card">
+      <h3>HNL Premier – Founding Clubs (Static Standings v0.0)</h3>
+      <p class="sub">
+        All 18 clubs listed with neutral 0–0–0 records for now. Points and stats will come later.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Club</th>
+            <th>Region</th>
+            <th>W</th>
+            <th>D</th>
+            <th>L</th>
+            <th>PTS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>Aurora City FC</td><td>Europe</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          <tr><td>2</td><td>Lumen Rhine United</td><td>Europe</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          <tr><td>3</td><td>Vespera Madridis</td><td>Europe</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
 
+          <tr><td>4</td><td>Sahara Horizon SC</td><td>Africa</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          <tr><td>5</td><td>Kinshasa River Eagles</td><td>Africa</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          <tr><td>6</td><td>Cape Aurora Waves</td><td>Africa</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+
+          <tr><td>7</td><td>Neo Tokyo Flux</td><td>Asia</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          <tr><td>8</td><td>Mumbai Starforge FC</td><td>Asia</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          <tr><td>9</td><td>Seoul Pulse Athletic</td><td>Asia</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+
+          <tr><td>10</td><td>Red Dunes Crescent FC</td><td>Middle East</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+
+          <tr><td>11</td><td>Pacific Tide United</td><td>Oceania</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+
+          <tr><td>12</td><td>New Avalon HyperCity FC</td><td>North America</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          <tr><td>13</td><td>Cascadia Forest Rangers</td><td>North America</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          <tr><td>14</td><td>Solaris Desert Kings</td><td>North America</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+
+          <tr><td>15</td><td>Rio Nova Carioca</td><td>South America</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          <tr><td>16</td><td>Andes Skywalkers FC</td><td>South America</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+
+          <tr><td>17</td><td>Baltic Storm Roamers</td><td>Transnational</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+          <tr><td>18</td><td>Atlas Gate Nomads</td><td>Transnational</td><td>0</td><td>0</td><td>0</td><td>0</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="footnote">
+      <p>
+        <strong>Note:</strong> This static table is the master record of the founding 18 clubs of the
+        HyperSoccer National League. Future versions will replace these zeroed stats with live data
+        pulled from a database and API, but the names and ordering here are the starting canon.
+      </p>
+    </section>
+  </main>
 </body>
 </html>
